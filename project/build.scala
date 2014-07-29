@@ -31,7 +31,17 @@ object MyScalatraWebAppBuild extends Build {
         "ch.qos.logback" % "logback-classic" % "1.0.6" % "runtime",
         "org.eclipse.jetty" % "jetty-webapp" % "9.1.3.v20140225" % "container",
         "org.eclipse.jetty" % "jetty-plus" % "9.1.3.v20140225" % "container",
-        "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "container;provided;test" artifacts (Artifact("javax.servlet", "jar", "jar"))
+        "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "container;provided;test" artifacts (Artifact("javax.servlet", "jar", "jar")),
+        "org.json4s"                  %% "json4s-jackson"      % "3.2.9",
+        "org.scalatra"                %% "scalatra"            % "2.3.0",
+        "org.scalatra"                %% "scalatra-scalate"    % "2.3.0",
+        "org.scalatra"                %% "scalatra-specs2"     % "2.3.0"  % "test",
+        "org.scalatra"                %% "scalatra-atmosphere" % "2.3.0",
+        "ch.qos.logback"              %  "logback-classic"     % "1.1.1"          % "runtime",
+        "org.eclipse.jetty"           %  "jetty-plus"          % "9.1.3.v20140225"     % "container;provided",
+        "org.eclipse.jetty"           %  "jetty-webapp"        % "9.1.3.v20140225"     % "container",
+        "org.eclipse.jetty.websocket" %  "websocket-server"    % "9.1.3.v20140225"     % "container;provided",
+        "javax.servlet"               %  "javax.servlet-api"   % "3.1.0"          % "container;provided;test" artifacts Artifact("javax.servlet-api", "jar", "jar")
       ),
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
         Seq(
