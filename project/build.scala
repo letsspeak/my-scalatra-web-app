@@ -4,6 +4,8 @@ import org.scalatra.sbt._
 import org.scalatra.sbt.PluginKeys._
 import com.mojolly.scalate.ScalatePlugin._
 import ScalateKeys._
+import com.earldouglas.xsbtwebplugin.PluginKeys._
+import com.earldouglas.xsbtwebplugin.WebPlugin._
 
 object MyScalatraWebAppBuild extends Build {
   val Organization = "com.example"
@@ -16,6 +18,7 @@ object MyScalatraWebAppBuild extends Build {
     "my-scalatra-web-app",
     file("."),
     settings = ScalatraPlugin.scalatraWithJRebel ++ scalateSettings ++ Seq(
+      port in container.Configuration := 3000,
       organization := Organization,
       name := Name,
       version := Version,
