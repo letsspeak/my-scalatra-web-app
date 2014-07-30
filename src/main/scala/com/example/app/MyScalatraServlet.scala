@@ -16,6 +16,8 @@ class MyScalatraServlet extends MyScalatraWebAppStack
   with JacksonJsonSupport with SessionSupport 
   with AtmosphereSupport {
 
+  implicit protected val jsonFormats: Formats = DefaultFormats
+
   atmosphere("/the-chat") {
     new AtmosphereClient {
       def receive = {
